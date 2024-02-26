@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "MonogramExtended";
+    src: url("../fonts/monogram-extended.ttf");
+}
+
+body {
+    background-image: -webkit-linear-gradient(-45deg, #FB4141 50%, #FFFFFF 50%);
+    height: 100vh;
+    font-family: "MonogramExtended" !important;
+}
+
+.btn-gen {
+    width: 70px;
+    height: 30px;
+    line-height: 10px !important;
+    border-radius: 20px !important;
+    font-size: 25px !important;
+}
+
+.btn-type {
+    border-radius: 999px !important;
+}
+
+.btn-outline-dark {
+    background-color: white !important;
+}
+
+.btn-outline-dark:hover {
+    background-color: #181616 !important;
+}
+
+.disp-flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.disp-flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gen-filter-btn-layout {
+    width: 30vw;
+} 
+
+.type-filter-bg {
+    background-color: #181616;
+    border-radius: 20px;
+    min-width: 50vw;
+    padding: 8px;
+}
