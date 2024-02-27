@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,10 +9,13 @@
     <link rel="stylesheet" href="CSS/style.css" />
     <link rel="stylesheet" href="CSS/loader.css" />
     <link rel="stylesheet" href="CSS/type-colors.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,11 +23,11 @@
         <div class="loader"></div>
         <p>LOADING...</p>
     </div>
-    
+
     <section id="filter-section" class="disp-flex-col-center">
         <div class="disp-flex-col-center">
             <h2>GENERATIONS:</h2>
-            <div class="disp-flex-row-center gen-filter-btn-layout">
+            <div class="disp-flex-row-sb gen-filter-btn-layout">
                 <button class="btn btn-outline-dark btn-gen">I</button>
                 <button class="btn btn-outline-dark btn-gen">II</button>
                 <button class="btn btn-outline-dark btn-gen">III</button>
@@ -35,36 +39,83 @@
                 <button class="btn btn-outline-dark btn-gen">IX</button>
             </div>
         </div>
-        
-        <div class="disp-flex-col-center">
+
+        <div class="disp-flex-col-center mb-5">
             <h2>TYPES:</h2>
-            <div class="type-filter-bg disp-flex-row-center">
-                <button class="btn btn-type normal-color"><img src="/img/normal.png" alt="normal type icon"></button>
-                <button class="btn btn-type fighting-color"><img src="/img/fighting.png" alt="fighting type icon"></button>
-                <button class="btn btn-type flying-color"><img src="/img/flying.png" alt="flying type icon"></button>
-                <button class="btn btn-type poison-color"><img src="/img/poison.png" alt="poision type icon"></button>
-                <button class="btn btn-type ground-color"><img src="/img/ground.png" alt="ground type icon"></button>
-                <button class="btn btn-type rock-color"><img src="/img/rock.png" alt="rock type icon"></button>
-                <button class="btn btn-type bug-color"><img src="/img/bug.png" alt="rock type icon"></button>
-                <button class="btn btn-type ghost-color"><img src="/img/ghost.png" alt="steel type icon"></button>
-                <button class="btn btn-type steel-color"><img src="/img/steel.png" alt="steel type icon"></button>
-                <button class="btn btn-type fire-color"><img src="/img/fire.png" alt="fire type icon"></button>
-                <button class="btn btn-type water-color"><img src="/img/water.png" alt="water type icon"></button>
-                <button class="btn btn-type grass-color"><img src="/img/grass.png" alt="grass type icon"></button>
-                <button class="btn btn-type electric-color"><img src="/img/electric.png" alt="electric type icon"></button>
-                <button class="btn btn-type psycho-color"><img src="/img/psycho.png" alt="psycho type icon"></button>
-                <button class="btn btn-type ice-color"><img src="/img/ice.png" alt="ice type icon"></button>
-                <button class="btn btn-type dragon-color"><img src="/img/dragon.png" alt="dragon type icon"></button>
-                <button class="btn btn-type dark-color"><img src="/img/dark.png" alt="dark type icon"></button>
-                <button class="btn btn-type fairy-color"><img src="/img/fairy.png" alt="fairy type icon"></button>
+            <div class="type-filter-bg disp-flex-row-sb">
+                <button class="btn btn-type normal-color"><img src="/img/types-img/normal.png" alt="normal type icon"></button>
+                <button class="btn btn-type fighting-color"><img src="/img/types-img/fighting.png" alt="fighting type icon"></button>
+                <button class="btn btn-type flying-color"><img src="/img/types-img/flying.png" alt="flying type icon"></button>
+                <button class="btn btn-type poison-color"><img src="/img/types-img/poison.png" alt="poision type icon"></button>
+                <button class="btn btn-type ground-color"><img src="/img/types-img/ground.png" alt="ground type icon"></button>
+                <button class="btn btn-type rock-color"><img src="/img/types-img/rock.png" alt="rock type icon"></button>
+                <button class="btn btn-type bug-color"><img src="/img/types-img/bug.png" alt="rock type icon"></button>
+                <button class="btn btn-type ghost-color"><img src="/img/types-img/ghost.png" alt="steel type icon"></button>
+                <button class="btn btn-type steel-color"><img src="/img/types-img/steel.png" alt="steel type icon"></button>
+                <button class="btn btn-type fire-color"><img src="/img/types-img/fire.png" alt="fire type icon"></button>
+                <button class="btn btn-type water-color"><img src="/img/types-img/water.png" alt="water type icon"></button>
+                <button class="btn btn-type grass-color"><img src="/img/types-img/grass.png" alt="grass type icon"></button>
+                <button class="btn btn-type electric-color"><img src="/img/types-img/electric.png"alt="electric type icon"></button>
+                <button class="btn btn-type psycho-color"><img src="/img/types-img/psycho.png" alt="psycho type icon"></button>
+                <button class="btn btn-type ice-color"><img src="/img/types-img/ice.png" alt="ice type icon"></button>
+                <button class="btn btn-type dragon-color"><img src="/img/types-img/dragon.png" alt="dragon type icon"></button>
+                <button class="btn btn-type dark-color"><img src="/img/types-img/dark.png" alt="dark type icon"></button>
+                <button class="btn btn-type fairy-color"><img src="/img/types-img/fairy.png" alt="fairy type icon"></button>
             </div>
         </div>
 
     </section>
 
-    <section id="pokemon-list">
-        
+    <section id="pokemon-list" class="pokemon-list disp-flex-row-center flex-wrap gap-3" >
+        <div class="card disp-flex-col pointer-event" style="width: 18rem">
+            <div class="electric-color-bg border-t-radius-20 disp-flex-col">
+                <div class="disp-flex-row-sb mx-4 mt-2">
+                    <h2>Pikachu</h2>
+                    <div class="black-bg id-bar p-2">
+                        <span class="id-text">#0001</span>
+                    </div>
+                </div>
+                <div class="dex-image disp-flex-col-center">
+                    <img src="/img/2.svg" class="pokeball-bg align-self-center" alt="">
+                    <img src="/img/test-img/25.png" class="card-img-top align-self-center pokemon-img pokemon-image" alt="..." style="width: 225px;">
+                </div>
+            </div>
+            <div class="bg-black py-1 border-b-radius-20">
+                <div class="disp-flex-row-center">
+                    <img class="align-self-center"src="/img/types-img/electric.png" alt="">
+                    <img class="align-self-center"src="/img/types-img/electric.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="pokemon-inspect" class="pokemon-list">
+        <div class="disp-flex-col" style="width: 18rem">
+            <div class="electric-color-bg border-t-radius-20 disp-flex-col">
+                <div class="disp-flex-row-sb mx-4 mt-2">
+                    <h2>Pikachu</h2>
+                    <div class="black-bg id-bar p-2">
+                        <span class="id-text">#0001</span>
+                    </div>
+                </div>
+                <img src="/img/test-img/25.png" class="card-img-top align-self-center" alt="..." style="width: 225px;">
+            </div>
+            <div class="bg-black py-1">
+                <div class="disp-flex-row-center">
+                    <img class="align-self-center"src="/img/types-img/electric.png" alt="">
+                    <img class="align-self-center"src="/img/types-img/electric.png" alt="">
+                </div>
+            </div>
+            <div class="card-body bg-white border-l-radius-20">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+        </div>
+
+
     </section>
 
 </body>
+
 </html>
