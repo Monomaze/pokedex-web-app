@@ -110,7 +110,7 @@ body {
 }
 
 .card:hover .pokemon-image {
-    transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%) scale(1.05);
     filter: drop-shadow(20px 4px 6px black);
 }
 

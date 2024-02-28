@@ -5,7 +5,7 @@ function init() {
 }
 
 async function createCards() {
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 40; i++) {
         await loadPokemonTopCardInfo(i);
     }
 }
@@ -20,19 +20,36 @@ async function loadPokemonTopCardInfo(id) {
     let pokemonFirstTypeImg = ``;
     let pokemonSecondTypeImg = ``;
 
-    if (responseAsJson['types'].length == 2) {
-        let pokemonFirstType = responseAsJson['types'][0]['type']['name'];
-        let pokemonSecondType = responseAsJson['types'][1]['type']['name'];
-        pokemonFirstTypeImg = setTypeImgUrl(pokemonFirstType);
-        pokemonSecondTypeImg = setTypeImgUrl(pokemonSecondType);
-    } else {
-        let pokemonFirstType = responseAsJson['types'][0]['type']['name'];
-        pokemonSecondTypeImg = null;
-        pokemonFirstTypeImg = setTypeImgUrl(pokemonFirstType);
-    };
+    createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonFirstTypeImg, pokemonSecondTypeImg, responseAsJson);
+}
 
+function createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonFirstTypeImg, pokemonSecondTypeImg, responseAsJson) {
     document.getElementById('pokemon-list').innerHTML += generatePokemonTopCardHTML(pokemonName, pokemonId, pokemonImgUrl);
+
+    types = getTypes(responseAsJson, pokemonFirstTypeImg, pokemonSecondTypeImg);
+    if (Array.isArray(types)) {
+        pokemonFirstTypeImg = types[0];
+        pokemonSecondTypeImg = types[1];
+    } else {
+        pokemonFirstTypeImg = types;
+        pokemonSecondTypeImg = null;
+    }
+
     document.getElementById(`types${pokemonId}`).innerHTML += generateTypeImgsHTML(pokemonFirstTypeImg, pokemonSecondTypeImg);
+}
+
+function getTypes(responseAsJson, pokemonFirstTypeImg, pokemonSecondTypeImg) {
+
+    let pokemonFirstType = responseAsJson['types'][0]['type']['name'];
+    pokemonFirstTypeImg = setTypeImgUrl(pokemonFirstType);
+
+    if (responseAsJson['types'].length == 2) {
+        let pokemonSecondType = responseAsJson['types'][1]['type']['name'];
+        pokemonSecondTypeImg = setTypeImgUrl(pokemonSecondType);
+        return [pokemonFirstTypeImg, pokemonSecondTypeImg];
+    } 
+
+    return pokemonFirstTypeImg;
 }
 
 function setTypeImgUrl(pokemonType) {
