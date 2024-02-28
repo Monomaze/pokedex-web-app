@@ -32,7 +32,7 @@ function createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonFirstTy
         pokemonSecondTypeImg = types[1];
     } else {
         pokemonFirstTypeImg = types;
-        pokemonSecondTypeImg = null;
+        pokemonSecondTypeImg = ``;
     }
 
     document.getElementById(`types${pokemonId}`).innerHTML += generateTypeImgsHTML(pokemonFirstTypeImg, pokemonSecondTypeImg);
