@@ -5,7 +5,7 @@ function init() {
 }
 
 async function createCards() {
-    for (let i = 1; i <= 40; i++) {
+    for (let i = 1; i <= 60; i++) {
         await loadPokemonTopCardInfo(i);
     }
 }
@@ -14,13 +14,20 @@ async function loadPokemonTopCardInfo(id) {
     let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     let response = await fetch(url);
     let responseAsJson = await response.json();
-    let pokemonName = responseAsJson['name'];
+    let pokemonName = capitalizeFirstLetter(responseAsJson['name']);
     let pokemonId = responseAsJson['id'];
     let pokemonImgUrl = responseAsJson['sprites']['other']['official-artwork']['front_default'];
     let pokemonFirstTypeImg = ``;
     let pokemonSecondTypeImg = ``;
 
     createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonFirstTypeImg, pokemonSecondTypeImg, responseAsJson);
+}
+
+function capitalizeFirstLetter(string) {
+    let firstChar = string.charAt(0);
+    let restOfString = string.slice(1);
+    firstChar = firstChar.toUpperCase();
+    return firstChar + restOfString;
 }
 
 function createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonFirstTypeImg, pokemonSecondTypeImg, responseAsJson) {
