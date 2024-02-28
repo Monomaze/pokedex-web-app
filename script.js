@@ -19,8 +19,16 @@ async function loadPokemonTopCardInfo(id) {
     let pokemonImgUrl = responseAsJson['sprites']['other']['official-artwork']['front_default'];
     let pokemonFirstTypeImg = ``;
     let pokemonSecondTypeImg = ``;
+    let pokemonMainType = responseAsJson['types'][0]['type']['name'];
+
 
     createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonFirstTypeImg, pokemonSecondTypeImg, responseAsJson);
+    setBgColorByType(pokemonMainType, pokemonId);
+}
+
+function setBgColorByType(pokemonType, id) {
+    let color = `${pokemonType}-color-bg`
+    document.getElementById(`top-card${id}`).classList.add(color);
 }
 
 function capitalizeFirstLetter(string) {
@@ -55,7 +63,6 @@ function getTypes(responseAsJson, pokemonFirstTypeImg, pokemonSecondTypeImg) {
         pokemonSecondTypeImg = setTypeImgUrl(pokemonSecondType);
         return [pokemonFirstTypeImg, pokemonSecondTypeImg];
     } 
-
     return pokemonFirstTypeImg;
 }
 
@@ -66,7 +73,7 @@ function setTypeImgUrl(pokemonType) {
 
 function generatePokemonTopCardHTML(name, id, imgUrl) {
     return `<div id="pokemon${id}" class="card disp-flex-col pointer-event" style="width: 18rem">
-        <div class="electric-color-bg border-t-radius-20 disp-flex-col">
+        <div id="top-card${id}" class="border-t-radius-20 disp-flex-col">
             <div class="disp-flex-row-sb mx-4 mt-2">
                 <h2>${name}</h2>
                 <div class="black-bg id-bar p-2">
