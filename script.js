@@ -27,8 +27,8 @@ async function loadPokemonTopCardInfo(id) {
 }
 
 function setBgColorByType(pokemonType, id) {
-    let color = `${pokemonType}-color-bg`
-    document.getElementById(`top-card${id}`).classList.add(color);
+    let color = TYPE_COLORS[`${pokemonType}`];
+    document.getElementById(`top-card${id}`).style.backgroundColor = color;
 }
 
 function capitalizeFirstLetter(string) {
