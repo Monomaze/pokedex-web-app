@@ -1,141 +1,75 @@
-.normal-color-bg {
-    background-color: #A8A899 !important;
-}
-
 .normal-color:hover {
     background-color: #A8A899 !important;
-}
-
-.fighting-color-bg {
-    background-color: #A84C3D !important;
 }
 
 .fighting-color:hover {
     background-color: #A84C3D !important;
 }
 
-.flying-color-bg {
-    background-color: #87B5E5 !important;
-}
-
 .flying-color:hover {
     background-color: #87B5E5 !important;
-}
-
-.poison-color-bg {
-    background-color: #864AB8 !important;
 }
 
 .poison-color:hover {
     background-color: #864AB8 !important;
 }
 
-.ground-color-bg {
-    background-color: #956833 !important;
-}
-
 .ground-color:hover {
     background-color: #956833 !important;
-}
-
-.rock-color-bg {
-    background-color: #A8995B !important;
 }
 
 .rock-color:hover {
     background-color: #A8995B !important;
 }
 
-.bug-color-bg {
-    background-color: #83AD25 !important;
-}
-
 .bug-color:hover {
     background-color: #83AD25 !important;
-}
-
-.ghost-color-bg {
-    background-color: #633C64 !important;
 }
 
 .ghost-color:hover {
     background-color: #633C64 !important;
 }
 
-.steel-color-bg {
-    background-color: #9999A8 !important;
-}
-
 .steel-color:hover {
     background-color: #9999A8 !important;
 }
 
-.fire-color-bg {
-    background-color: #E53B19 !important;
-}
 
 .fire-color:hover {
     background-color: #E53B19 !important;
-}
-
-.water-color-bg {
-    background-color: #278BCC !important;
 }
 
 .water-color:hover {
     background-color: #278BCC !important;
 }
 
-.grass-color-bg {
-    background-color: #58A951 !important;
-}
 
 .grass-color:hover {
     background-color: #58A951 !important;
-}
-
-.electric-color-bg {
-    background-color: #E5C600 !important;
 }
 
 .electric-color:hover {
     background-color: #E5C600 !important;
 }
 
-.psycho-color-bg {
-    background-color: #E55973 !important;
-}
 
 .psycho-color:hover {
     background-color: #E55973 !important;
 }
 
-.ice-color-bg {
-    background-color: #68BAAC !important;
-}
 
 .ice-color:hover {
     background-color: #68BAAC !important;
 }
 
-.dragon-color-bg {
-    background-color: #4D64AB !important;
-}
 
 .dragon-color:hover {
     background-color: #4D64AB !important;
 }
 
-.dark-color-bg {
-    background-color: #463E3E !important;
-}
 
 .dark-color:hover {
     background-color: #463E3E !important;
-}
-
-.fairy-color-bg {
-    background-color: #D480CF !important;
 }
 
 .fairy-color:hover {

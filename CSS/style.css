@@ -4,9 +4,15 @@
 }
 
 body {
-    background-image: -webkit-linear-gradient(-45deg, #FB4141 50%, #FFFFFF 50%);
     height: 100vh;
     font-family: "MonogramExtended" !important;
+}
+
+.background {
+    position: fixed;
+    background-image: -webkit-linear-gradient(-45deg, #FB4141 50%, #FFFFFF 50%);
+    height: 100%;
+    width: 100%;
 }
 
 .btn-gen {
@@ -133,4 +139,12 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.pos-rel {
+    position: relative;
+}
+
+.overscroll-contain {
+    overscroll-behavior: contain;
 }
