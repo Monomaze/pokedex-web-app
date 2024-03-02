@@ -1,5 +1,5 @@
 let currentlyLoaded = 1;
-let intendedToLoad = 60;
+let intendedToLoad = 151;
 
 function init() {
     createCards();
@@ -19,7 +19,7 @@ async function loadPokemonTopCardInfo(id) {
     let pokemonId = pokemonDataAsJson['id'];
     let pokemonImgUrl = pokemonDataAsJson['sprites']['other']['official-artwork']['front_default'];
     let pokemonMainType = pokemonDataAsJson['types'][0]['type']['name'];
-
+    
     createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonDataAsJson);
     setBgColorByType(pokemonMainType, pokemonId);
 }

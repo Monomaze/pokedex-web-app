@@ -12,7 +12,7 @@ const TYPE_COLORS = {
     water: '#278BCC',
     grass: '#58A951',
     electric: '#E5C600',
-    psycho: '#E55973',
+    psychic: '#E55973',
     ice: '#68BAAC',
     dragon: '#4D64AB',
     dark: '#463E3E',
