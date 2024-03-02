@@ -24,11 +24,6 @@ async function loadPokemonTopCardInfo(id) {
     setBgColorByType(pokemonMainType, pokemonId);
 }
 
-function setBgColorByType(pokemonType, id) {
-    let color = TYPE_COLORS[`${pokemonType}`];
-    document.getElementById(`top-card${id}`).style.backgroundColor = color;
-}
-
 function capitalizeFirstLetter(string) {
     let firstChar = string.charAt(0).toUpperCase() + string.slice(1);
     return firstChar;
@@ -65,3 +60,17 @@ function setTypeImgUrl(pokemonType) {
     return type;  
 }
 
+function setBgColorByType(pokemonType, id) {
+    let color = TYPE_COLORS[`${pokemonType}`];
+    document.getElementById(`top-card${id}`).style.backgroundColor = color;
+}
+
+function setBtnBgColor(type) {
+    let color = TYPE_COLORS[`${type}`];
+    document.getElementById(`${type}-btn`).style.backgroundColor = color;
+}
+
+function setBtnBgColorToDefault(type) {
+    let color = TYPE_COLORS[`default`];
+    document.getElementById(`${type}-btn`).style.backgroundColor = color;
+}

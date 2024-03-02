@@ -16,5 +16,6 @@ const TYPE_COLORS = {
     ice: '#68BAAC',
     dragon: '#4D64AB',
     dark: '#463E3E',
-    fairy: '#D480CF'
+    fairy: '#D480CF',
+    default: '#181616' 
 }

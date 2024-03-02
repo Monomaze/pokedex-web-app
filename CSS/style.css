@@ -111,6 +111,12 @@ body {
     cursor: pointer;
 }
 
+.card:hover {
+    transform: scale(1.05);
+    border-radius: 20px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+}
+
 .card:hover .pokeball-bg {
     filter: blur(5px);
 }
@@ -124,6 +130,11 @@ body {
     position: relative;
     top: 0;
     left: 0;
+}
+
+.pokemon-list {
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .pokeball-bg {
