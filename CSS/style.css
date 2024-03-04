@@ -10,7 +10,7 @@ body {
 
 .background {
     position: fixed;
-    background-image: -webkit-linear-gradient(-45deg, #FB4141 50%, #FFFFFF 50%);
+    background-image: -webkit-linear-gradient(-45deg, #FB4141 49%, #181616 49%, #181616 51%, #FFFFFF 51%);
     height: 100%;
     width: 100%;
 }
