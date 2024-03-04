@@ -15,6 +15,16 @@ body {
     width: 100%;
 }
 
+.logo {
+    width: 250px;
+}
+
+.searchbar {
+    width: 170px !important;
+    border-radius: 20px !important;
+    font-size: 24px !important;
+}
+
 .btn-gen {
     width: 70px;
     height: 30px;
@@ -67,7 +77,6 @@ body {
 .type-filter-bg {
     background-color: #181616;
     border-radius: 20px;
-    min-width: 50vw;
     padding: 8px;
 }
 
@@ -132,7 +141,7 @@ body {
     left: 0;
 }
 
-.pokemon-list {
+.px-100px {
     margin-left: 100px;
     margin-right: 100px;
 }

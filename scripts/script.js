@@ -1,5 +1,5 @@
 let currentlyLoaded = 1;
-let intendedToLoad = 151;
+let intendedToLoad = 30;
 
 function init() {
     createCards();

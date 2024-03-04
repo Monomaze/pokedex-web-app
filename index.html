@@ -21,11 +21,18 @@
 
 <body onload="init()">
     <div class="background"></div>
-    <div class="loader-container" style="display: none">
+
+    <!-- <div class="loader-container" style="display: none">
         <div class="loader"></div>
         <p>LOADING...</p>
-    </div>
+    </div> -->
 
+    <nav class="navbar disp-flex-row-sb gap-5 mb-1">
+        <a class="navbar-brand gap-2 ms-auto" href="#">
+            <img class="logo" src="/img/logo-text.svg" alt="">
+        </a>
+        <input class="form-control me-2 searchbar me-auto" type="search" placeholder="Search..." aria-label="Search">
+    </nav>
     <section id="filter-section" class="disp-flex-col-center z-1 pos-rel">
         <div class="disp-flex-col-center">
             <h2>GENERATIONS:</h2>
@@ -68,7 +75,7 @@
 
     </section>
 
-    <section id="pokemon-list" class="pokemon-list disp-flex-row-center flex-wrap gap-3" >
+    <section id="pokemon-list" class="pokemon-list disp-flex-row-center flex-wrap gap-3 px-100px" >
     </section>
 <!--
 
