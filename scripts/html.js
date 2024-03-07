@@ -1,9 +1,9 @@
 function generatePokemonTopCardHTML(name, id, imgUrl) {
-    return `<div id="pokemon${id}" class="card disp-flex-col pointer-event overscroll-contain" style="width: 18rem">
+    return `<div id="pokemon${id}" class="card disp-flex-col pointer-event" style="width: 18rem">
         <div id="top-card${id}" class="border-t-radius-20 disp-flex-col">
             <div class="disp-flex-row-sb mx-4 mt-2">
                 <h2>${name}</h2>
-                <div class="black-bg id-bar p-2">
+                <div class="black-bg id-bar p-2 border-b-radius-20">
                     <span class="id-text">#${String(id).padStart(4,'0')}</span>
                 </div>
             </div>
