@@ -7,7 +7,7 @@ function init() {
 
 async function createCards() {
     for (currentlyLoaded; currentlyLoaded <= intendedToLoad; currentlyLoaded++) {
-        await loadPokemonTopCardInfo(currentlyLoaded);
+        await createPokemonCard(currentlyLoaded);
     }
 }
 
@@ -15,13 +15,29 @@ async function loadPokemonTopCardInfo(id) {
     let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     let pokemonData = await fetch(url);
     let pokemonDataAsJson = await pokemonData.json();
+
+    return pokemonDataAsJson;
+}
+
+async function getPokemonTopCardInfo(id) {
+    let pokemonDataAsJson = await loadPokemonTopCardInfo(id);
     let pokemonName = capitalizeFirstLetter(pokemonDataAsJson['name']);
     let pokemonId = pokemonDataAsJson['id'];
     let pokemonImgUrl = pokemonDataAsJson['sprites']['other']['official-artwork']['front_default'];
     let pokemonMainType = pokemonDataAsJson['types'][0]['type']['name'];
-    
-    createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonDataAsJson);
-    setBgColorByType(pokemonMainType, pokemonId);
+    let pokemonSecondType = ``;
+
+    if (pokemonDataAsJson['types'].length == 2) {
+        pokemonSecondType = pokemonDataAsJson['types'][1]['type']['name'];
+    }
+
+    return [pokemonName, pokemonId, pokemonImgUrl, pokemonMainType, pokemonSecondType];
+}
+
+function inspectPokemon(id) {
+    /* loadPokemonTopCardInfo(id);
+
+    generatePokemonInfo(id, name, imgUrl, typeOne, typeTwo, height, weight, category, cry); */
 }
 
 function capitalizeFirstLetter(string) {
@@ -29,26 +45,24 @@ function capitalizeFirstLetter(string) {
     return firstChar;
 }
 
-function createPokemonCard(pokemonName, pokemonId, pokemonImgUrl, pokemonDataAsJson) {
+async function createPokemonCard(id) {
+    let [pokemonName, pokemonId, pokemonImgUrl, pokemonMainType, pokemonSecondType] = await getPokemonTopCardInfo(id);
     document.getElementById('pokemon-list').innerHTML += generatePokemonTopCardHTML(pokemonName, pokemonId, pokemonImgUrl);
-    types = getTypes(pokemonDataAsJson);
 
-    pokemonFirstTypeImg = types[0];
-    pokemonSecondTypeImg = types[1];
-
+    let [pokemonFirstTypeImg, pokemonSecondTypeImg] = getTypes(pokemonMainType, pokemonSecondType);
     document.getElementById(`types${pokemonId}`).innerHTML += generateTypeImgsHTML(pokemonFirstTypeImg, pokemonSecondTypeImg);
+
+    setBgColorByType(pokemonMainType, pokemonId);
 }
 
-function getTypes(pokemonDataAsJson) {   
+function getTypes(pokemonFirstType, pokemonSecondType) {   
     // get Pokémon first type and set type img
-    let pokemonFirstType = pokemonDataAsJson['types'][0]['type']['name'];
     let pokemonFirstTypeImg = setTypeImgUrl(pokemonFirstType);
     // default no secondy type
     let pokemonSecondTypeImg = ``;
 
     // check if Pokémon has second type and set the correspending img
-    if (pokemonDataAsJson['types'].length == 2) {
-        let pokemonSecondType = pokemonDataAsJson['types'][1]['type']['name'];
+    if (pokemonSecondType != '') {
         pokemonSecondTypeImg = setTypeImgUrl(pokemonSecondType);
     } 
 
