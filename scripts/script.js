@@ -1,5 +1,7 @@
 let currentlyLoaded = 1;
 let intendedToLoad = 30;
+let inspectState = false;
+
 
 function init() {
     createCards();
@@ -11,16 +13,39 @@ async function createCards() {
     }
 }
 
-async function loadPokemonTopCardInfo(id) {
+async function loadPokemonInfo(id) {
     let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     let pokemonData = await fetch(url);
     let pokemonDataAsJson = await pokemonData.json();
 
-    return pokemonDataAsJson;
+    url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+    pokemonData = await fetch(url);
+    let pokemonSpeciesDataAsJson = await pokemonData.json();
+
+    return [pokemonDataAsJson, pokemonSpeciesDataAsJson];
 }
 
+async function getPokemonBottomCardInfo(id) {
+    let [pokemonDataAsJson, pokemonSpeciesDataAsJson] = await loadPokemonInfo(id);
+    console.log(pokemonDataAsJson);
+
+    let exp = ['base_experience'];
+    let height = ['height'];
+    let weight = ['weight'];
+    let category = ``;
+    let cry = pokemonDataAsJson['cries']['latest'];
+    let flavorText = pokemonSpeciesDataAsJson['flavor_text_entries'][0]['flavor_text'];
+
+    return [exp, height, weight, category, cry, flavorText];
+}
+
+/* async function getPokemonStats(id) {
+
+} */
+
 async function getPokemonTopCardInfo(id) {
-    let pokemonDataAsJson = await loadPokemonTopCardInfo(id);
+    let pokemonData = await loadPokemonInfo(id);
+    let pokemonDataAsJson = pokemonData[0];
     let pokemonName = capitalizeFirstLetter(pokemonDataAsJson['name']);
     let pokemonId = pokemonDataAsJson['id'];
     let pokemonImgUrl = pokemonDataAsJson['sprites']['other']['official-artwork']['front_default'];
@@ -34,10 +59,15 @@ async function getPokemonTopCardInfo(id) {
     return [pokemonName, pokemonId, pokemonImgUrl, pokemonMainType, pokemonSecondType];
 }
 
-function inspectPokemon(id) {
-    /* loadPokemonTopCardInfo(id);
+async function inspectPokemon(id) {
+    let [pokemonName, pokemonId, pokemonImgUrl, pokemonMainType, pokemonSecondType] = await getPokemonTopCardInfo(id);
+    let [exp, height, weight, category, cry, flavorText] = await getPokemonBottomCardInfo(id);
+    let [pokemonFirstTypeImg, pokemonSecondTypeImg] = getTypes(pokemonMainType, pokemonSecondType);
+    let inspectState = true;
 
-    generatePokemonInfo(id, name, imgUrl, typeOne, typeTwo, height, weight, category, cry); */
+    document.getElementById('pokemon-inspect').innerHTML = await generatePokemonInfo(pokemonId, pokemonName, pokemonImgUrl, exp, height, weight, category, cry, flavorText);
+    document.getElementById(`types-inspect${pokemonId}`).innerHTML += await generateTypeImgsHTML(pokemonFirstTypeImg, pokemonSecondTypeImg);
+    setBgColorByType(pokemonMainType, pokemonId, inspectState);
 }
 
 function capitalizeFirstLetter(string) {
@@ -52,7 +82,7 @@ async function createPokemonCard(id) {
     let [pokemonFirstTypeImg, pokemonSecondTypeImg] = getTypes(pokemonMainType, pokemonSecondType);
     document.getElementById(`types${pokemonId}`).innerHTML += generateTypeImgsHTML(pokemonFirstTypeImg, pokemonSecondTypeImg);
 
-    setBgColorByType(pokemonMainType, pokemonId);
+    setBgColorByType(pokemonMainType, pokemonId, inspectState);
 }
 
 function getTypes(pokemonFirstType, pokemonSecondType) {   
@@ -74,9 +104,15 @@ function setTypeImgUrl(pokemonType) {
     return type;  
 }
 
-function setBgColorByType(pokemonType, id) {
+function setBgColorByType(pokemonType, id, inspectState) {
     let color = TYPE_COLORS[`${pokemonType}`];
     document.getElementById(`top-card${id}`).style.backgroundColor = color;
+
+    if (inspectState == true) {
+        document.getElementById(`top-card-inspect${id}`).style.backgroundColor = color;
+        inspectState = false;
+    }
+
 }
 
 function setBtnBgColor(type) {
