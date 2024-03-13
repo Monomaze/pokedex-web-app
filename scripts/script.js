@@ -37,7 +37,7 @@ function getPokemonBottomCardInfo() {
     let category = ``;
     let cry = pokemonDataStorage[pokemonId].cries.latest;
 
-    return [exp, height, weight, category, cry, generation];
+    return [exp, height, weight, category, cry];
 }
 
 /* async function getPokemonStats(id) {
