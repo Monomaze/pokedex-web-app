@@ -65,14 +65,14 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
                     </tr>
                     <tr>
                         <td class="tg-0lax">Cry:</td>
-                        <td class="tg-0lax" onclick="playAudio(${id})"><img src="/img/icons/play.svg" alt="play button"></td>
+                        <td class="tg-0lax" onclick="playAudio(${id})"><img role="button" src="/img/icons/play.svg" alt="play button"></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div id="stats-page">
             </div>
-            <img src="/img/icons/close.svg" alt="close button">
+            <img onclick="closePopUp()" role="button" src="/img/icons/close.svg" alt="close button">
         </div>
     </div>`;
 }
