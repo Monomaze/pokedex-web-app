@@ -35,9 +35,8 @@ function getPokemonBottomCardInfo() {
     let height = pokemonDataStorage[pokemonId].height / 10 + ` m`;
     let weight = pokemonDataStorage[pokemonId].weight / 10 + ` kg`;
     let category = ``;
-    let cry = pokemonDataStorage[pokemonId].cries.latest;
 
-    return [exp, height, weight, category, cry];
+    return [exp, height, weight, category];
 }
 
 /* async function getPokemonStats(id) {
@@ -60,11 +59,11 @@ function getPokemonTopCardInfo() {
 function inspectPokemon(id) {
     pokemonId = id; // set id to clicked Pokemon
     let [pokemonName, pokemonImgUrl, pokemonMainType, pokemonSecondType] = getPokemonTopCardInfo();
-    let [exp, height, weight, category, cry, flavorText] = getPokemonBottomCardInfo();
+    let [exp, height, weight, category] = getPokemonBottomCardInfo();
     let [pokemonFirstTypeImg, pokemonSecondTypeImg] = getTypes(pokemonMainType, pokemonSecondType);
     let inspectState = true;
 
-    document.getElementById('pokemon-inspect').innerHTML = generatePokemonInfoHTML(pokemonId, pokemonName, pokemonImgUrl, exp, height, weight, category, cry, flavorText);
+    document.getElementById('pokemon-inspect').innerHTML = generatePokemonInfoHTML(pokemonId, pokemonName, pokemonImgUrl, exp, height, weight, category);
     document.getElementById(`types-inspect${pokemonId}`).innerHTML += generateTypeImgsHTML(pokemonFirstTypeImg, pokemonSecondTypeImg);
     setBgColorByType(pokemonMainType, inspectState);
 }
@@ -95,6 +94,12 @@ function getTypes(pokemonFirstType, pokemonSecondType) {
     } 
 
     return [pokemonFirstTypeImg, pokemonSecondTypeImg];
+}
+
+function playAudio(id) {
+    let cryUrl = pokemonDataStorage[id].cries.latest;
+    let cry = new Audio(cryUrl);
+    cry.play();
 }
 
 function setTypeImgUrl(pokemonType) {

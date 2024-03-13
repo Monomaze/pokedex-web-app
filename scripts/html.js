@@ -24,7 +24,7 @@ function generateTypeImgsHTML(typeOne, typeTwo) {
     <img class="align-self-center"src="${typeTwo}" alt="">`;
 }
 
-function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight, category, cry, flavorText) {
+function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight, category) {
     return `<div id="pokemon-inspect${id}" class="card disp-flex-col dialog" style="width: 18rem">
         <div id="top-card-inspect${id}" class="border-t-radius-20 disp-flex-col">
             <div class="disp-flex-row-sb mx-4 mt-2">
@@ -48,7 +48,7 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight, category
                 <a href="#">STATS</a>
             </nav>
 
-            <div>
+            <div id="info-page">
                 <table class="tg mt-3 mb-3">
                     <tbody>
                     <tr>
@@ -64,12 +64,8 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight, category
                         <td class="tg-0lax">${weight}</td>
                     </tr>
                     <tr>
-                        <td class="tg-0lax">Category:</td>
-                        <td class="tg-0lax">${category}</td>
-                    </tr>
-                    <tr>
                         <td class="tg-0lax">Cry:</td>
-                        <td class="tg-0lax">${cry}</td>
+                        <td class="tg-0lax" onclick="playAudio(${id})"><img src="/img/icons/play.svg" alt="play button"></td>
                     </tr>
                     </tbody>
                 </table>
