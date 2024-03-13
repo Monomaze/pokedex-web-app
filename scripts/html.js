@@ -24,8 +24,8 @@ function generateTypeImgsHTML(typeOne, typeTwo) {
     <img class="align-self-center"src="${typeTwo}" alt="">`;
 }
 
-function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight, category) {
-    return `<div id="pokemon-inspect${id}" class="card disp-flex-col dialog" style="width: 18rem">
+function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
+    return `<div id="pokemon-inspect${id}" class="disp-flex-col dialog" style="width: 18rem">
         <div id="top-card-inspect${id}" class="border-t-radius-20 disp-flex-col">
             <div class="disp-flex-row-sb mx-4 mt-2">
                 <h2>${name}</h2>
@@ -70,6 +70,9 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight, category
                     </tbody>
                 </table>
             </div>
+            <div id="stats-page">
+            </div>
+            <img src="/img/icons/close.svg" alt="close button">
         </div>
     </div>`;
 }
