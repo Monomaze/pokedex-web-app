@@ -66,6 +66,8 @@ function inspectPokemon(id) {
     document.getElementById('pokemon-inspect').innerHTML = generatePokemonInfoHTML(pokemonId, pokemonName, pokemonImgUrl, exp, height, weight, category);
     document.getElementById(`types-inspect${pokemonId}`).innerHTML += generateTypeImgsHTML(pokemonFirstTypeImg, pokemonSecondTypeImg);
     setBgColorByType(pokemonMainType, inspectState);
+    document.getElementById('body').classList.add('overflow-hidden');
+    document.getElementById('pop-up-bg').classList.remove('d-none');
 }
 
 function capitalizeFirstLetter(string) {
@@ -125,4 +127,11 @@ function setBtnBgColor(type) {
 function setBtnBgColorToDefault(type) {
     let color = TYPE_COLORS[`default`];
     document.getElementById(`${type}-btn`).style.backgroundColor = color;
+}
+
+function closePopUp() {
+    document.getElementById('body').classList.remove('overflow-hidden');
+    document.getElementById('pop-up-bg').classList.add('d-none');
+    document.getElementById('pokemon-inspect').innerHTML = ``;
+    document.getElementById(`types-inspect${pokemonId}`).innerHTML =``;
 }

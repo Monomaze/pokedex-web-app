@@ -175,3 +175,15 @@ body {
 .dialog {
     position: relative;
 }
+
+.pop-up-bg {
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
