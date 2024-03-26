@@ -15,6 +15,7 @@ async function createCards() {
         await loadPokemonInfo();
         pokemonId++;
     }
+    currentlyLoaded = intendedToLoad + 1;
 }
 
 async function loadPokemonInfo() {
@@ -134,4 +135,32 @@ function closePopUp() {
     document.getElementById('pop-up-bg').classList.add('d-none');
     document.getElementById('pokemon-inspect').innerHTML = ``;
     document.getElementById(`types-inspect${pokemonId}`).innerHTML =``;
+}
+
+function search() {
+    let term = document.getElementById('searchbar').value.toLowerCase();
+    let termLength = term.length;
+    let pokemonList = document.getElementById('pokemon-list');
+    let pokemonCards = pokemonList.getElementsByClassName('card');
+
+    showBasedOnSearchInput(term, termLength, pokemonList, pokemonCards);
+}
+
+function showBasedOnSearchInput(term, termLength, pokemonList, pokemonCards) {
+    if (termLength >= 3) {
+        for (i = 0; i < currentlyLoaded - 1; i++) {
+            let pokemonCard = pokemonCards[i];
+            let name = pokemonCard.querySelector('h2').textContent.toLowerCase();
+            if (name.includes(term)) {
+                pokemonCard.style.display = ""; 
+            } else {
+                pokemonCard.style.display = "none";
+            }
+        }
+    } else {
+        for (i = 0; i < currentlyLoaded - 1; i++) {
+            let pokemonCard = pokemonCards[i];
+            pokemonCard.style.display = "";
+        }
+    }
 }
