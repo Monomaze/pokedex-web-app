@@ -164,3 +164,13 @@ function showBasedOnSearchInput(term, termLength, pokemonList, pokemonCards) {
         }
     }
 }
+
+function showInfo() {
+    document.getElementById("info-page").classList.remove("d-none");
+    document.getElementById("stats-page").classList.add("d-none");
+}
+
+function showStats() {
+    document.getElementById("stats-page").classList.remove("d-none");
+    document.getElementById("info-page").classList.add("d-none");
+}

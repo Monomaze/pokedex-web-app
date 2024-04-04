@@ -25,7 +25,7 @@ function generateTypeImgsHTML(typeOne, typeTwo) {
 }
 
 function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
-    return `<div id="pokemon-inspect${id}" class="disp-flex-col dialog" style="width: 18rem">
+    return `<div id="pokemon-inspect${id}" class="disp-flex-col dialog" style="width: 25rem">
         <div id="top-card-inspect${id}" class="border-t-radius-20 disp-flex-col">
             <div class="disp-flex-row-sb mx-4 mt-2">
                 <h2>${name}</h2>
@@ -38,18 +38,22 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
                 <img src="${imgUrl}" class="card-img-top align-self-center pokemon-img pokemon-image" alt="..." style="width: 225px;">
             </div>
         </div>
-        <div class="bg-black py-1 border-b-radius-20">
+        <div class="bg-black py-1 border-b-radius-20 z-3">
             <div id="types-inspect${id}" class="disp-flex-row-center">
             </div>
         </div>
-        <div class="card-body bg-white border-b-radius-20 mt-min-40 z-2" style="width: 18rem">
-            <nav class="mt-5">
-                <a href="#">INFO</a>
-                <a href="#">STATS</a>
-            </nav>
+        <div class="card-body bg-white border-b-radius-20 mt-min-40 z-2 d-flex flex-column align-items-center" style="width: 25rem; height: 20rem">
+
+            <div class="btn-group mt-5" role="group" aria-label="Basic radio toggle button group" style="width: 70%;">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="showInfo()" checked>
+                <label class="btn btn-outline-danger" for="btnradio1">INFO</label>
+            
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="showStats()">
+                <label class="btn btn-outline-danger" for="btnradio2">STATS</label>
+            </div>
 
             <div id="info-page">
-                <table class="tg mt-3 mb-3">
+                <table class="tg mt-3 mb-3 d-flex justify-content-center align-items-center">
                     <tbody>
                     <tr>
                         <td class="tg-0lax">Base Exp:</td>
@@ -70,9 +74,10 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
                     </tbody>
                 </table>
             </div>
-            <div id="stats-page">
+            <div id="stats-page" class="d-none">
+                <canvas id="chart-${id}"></canvas>
             </div>
-            <img onclick="closePopUp()" role="button" src="/img/icons/close.svg" alt="close button">
+            <button onclick="closePopUp()" type="button" class="btn-close mb-3" aria-label="Close"></button>
         </div>
     </div>`;
 }
