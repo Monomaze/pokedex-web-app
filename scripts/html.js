@@ -75,7 +75,7 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
                 </table>
             </div>
             <div id="stats-page" class="d-none">
-                <canvas id="chart-${id}"></canvas>
+                <canvas id="chart-${id}" width="200" height="200"></canvas>
             </div>
             <button onclick="closePopUp()" type="button" class="btn-close mb-3" aria-label="Close"></button>
         </div>

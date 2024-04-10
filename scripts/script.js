@@ -40,10 +40,6 @@ function getPokemonBottomCardInfo() {
     return [exp, height, weight, category];
 }
 
-/* async function getPokemonStats(id) {
-
-} */
-
 function getPokemonTopCardInfo() {
     let pokemonName = capitalizeFirstLetter(pokemonDataStorage[pokemonId].name);
     let pokemonImgUrl = pokemonDataStorage[pokemonId].sprites.other['official-artwork'].front_default;
@@ -55,6 +51,17 @@ function getPokemonTopCardInfo() {
     }
 
     return [pokemonName, pokemonImgUrl, pokemonMainType, pokemonSecondType];
+}
+
+function getPokemonStats() {
+    let hp = pokemonDataStorage[pokemonId].stats[0].base_stat;
+    let attack = pokemonDataStorage[pokemonId].stats[1].base_stat;
+    let defense = pokemonDataStorage[pokemonId].stats[2].base_stat;
+    let spatk = pokemonDataStorage[pokemonId].stats[3].base_stat;
+    let spdef = pokemonDataStorage[pokemonId].stats[4].base_stat;
+    let speed = pokemonDataStorage[pokemonId].stats[5].base_stat;
+
+    return [hp, attack, defense, spatk, spdef, speed];
 }
 
 function inspectPokemon(id) {
@@ -133,8 +140,8 @@ function setBtnBgColorToDefault(type) {
 function closePopUp() {
     document.getElementById('body').classList.remove('overflow-hidden');
     document.getElementById('pop-up-bg').classList.add('d-none');
-    document.getElementById('pokemon-inspect').innerHTML = ``;
     document.getElementById(`types-inspect${pokemonId}`).innerHTML =``;
+    document.getElementById('pokemon-inspect').innerHTML = ``;
 }
 
 function search() {
@@ -173,4 +180,6 @@ function showInfo() {
 function showStats() {
     document.getElementById("stats-page").classList.remove("d-none");
     document.getElementById("info-page").classList.add("d-none");
+    renderChart();
 }
+
