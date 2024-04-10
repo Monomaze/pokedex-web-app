@@ -1,5 +1,6 @@
 let currentlyLoaded = 1;    // set amount of currently loaded Pokemon
 let intendedToLoad = 30;    // set amount of Pokemon intended to load
+let loadingAmount = 30;
 let pokemonId = 1;          // set the ID for Pokemon, starting with 1
 let currentPokemonId;         // Variable for storing the currently loaded Pokemon
 let inspectState = false;   // Variable to define if pop up is open or not
@@ -9,6 +10,10 @@ function init() {
     createCards();
 }
 
+function loadMore() {
+    document.getElementById('load-btn').addEventListener("click", createCards());
+}
+
 async function createCards() {
     pokemonId = currentlyLoaded;
     for (currentlyLoaded; currentlyLoaded <= intendedToLoad; currentlyLoaded++) {
@@ -16,6 +21,7 @@ async function createCards() {
         pokemonId++;
     }
     currentlyLoaded = intendedToLoad + 1;
+    intendedToLoad += loadingAmount;
 }
 
 async function loadPokemonInfo() {
