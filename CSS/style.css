@@ -187,3 +187,45 @@ body {
 .overflow-hidden {
     overflow: hidden;
 }
+
+.tg {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+.tg td {
+    border-color:rgba(0,0,0,0);
+    font-size:24px;
+    overflow:hidden;
+    padding: 3px 20px;
+    word-break:normal;
+}
+
+.tg .tg-0lax {
+    text-align:left;
+    vertical-align:top
+}
+
+.mt-min-40 {
+    margin-top: -40px;
+}
+
+.bg-red {
+    background-color: #FB4141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.bg-white {
+    background-color: white;    
+    width: 80%;
+    height: 80%;
+}
+
+.flavor-text {
+    font-size: 10px;
+    text-align: center;
+}
+
