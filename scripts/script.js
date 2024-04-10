@@ -156,10 +156,10 @@ function search() {
     let pokemonList = document.getElementById('pokemon-list');
     let pokemonCards = pokemonList.getElementsByClassName('card');
 
-    showBasedOnSearchInput(term, termLength, pokemonList, pokemonCards);
+    showBasedOnSearchInput(term, termLength, pokemonCards);
 }
 
-function showBasedOnSearchInput(term, termLength, pokemonList, pokemonCards) {
+function showBasedOnSearchInput(term, termLength, pokemonCards) {
     if (termLength >= 3) {
         for (i = 0; i < currentlyLoaded - 1; i++) {
             let pokemonCard = pokemonCards[i];
@@ -170,11 +170,13 @@ function showBasedOnSearchInput(term, termLength, pokemonList, pokemonCards) {
                 pokemonCard.style.display = "none";
             }
         }
+        document.getElementById("load-btn").classList.add("d-none");
     } else {
         for (i = 0; i < currentlyLoaded - 1; i++) {
             let pokemonCard = pokemonCards[i];
             pokemonCard.style.display = "";
         }
+        document.getElementById("load-btn").classList.remove("d-none");
     }
 }
 
