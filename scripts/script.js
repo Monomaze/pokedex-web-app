@@ -177,6 +177,7 @@ function showBasedOnSearchInput(term, termLength, pokemonCards) {
 function showInfo() {
     document.getElementById("info-page").classList.remove("d-none");
     document.getElementById("stats-page").classList.add("d-none");
+    myChart.destroy();
 }
 
 function showStats() {

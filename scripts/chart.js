@@ -1,4 +1,4 @@
-
+let myChart;
 
 function renderChart() {
     let [hp, attack, defense, spatk, spdef, speed] = getPokemonStats();
@@ -54,5 +54,5 @@ function renderChart() {
         },
     };
 
-    let myChart = new Chart(ctx, config);
+    myChart = new Chart(ctx, config);
 }
