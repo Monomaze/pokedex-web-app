@@ -7,7 +7,7 @@ let inspectState = false;   // Variable to define if pop up is open or not
 let pokemonDataStorage = {}; // emtpy JSON for storing all base information from Pokemon
 
 function init() {
-    createCards();
+    loadMore();
 }
 
 async function loadMore() {
