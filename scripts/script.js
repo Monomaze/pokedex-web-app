@@ -10,8 +10,12 @@ function init() {
     createCards();
 }
 
-function loadMore() {
-    document.getElementById('load-btn').addEventListener("click", createCards());
+async function loadMore() {
+    let loadBtn = document.getElementById('load-btn');
+
+    loadBtn.setAttribute('disabled', '');
+    loadBtn.addEventListener("click", await createCards());
+    loadBtn.removeAttribute('disabled');
 }
 
 async function createCards() {
@@ -131,16 +135,6 @@ function setBgColorByType(pokemonType, inspectState) {
         document.getElementById(`top-card-inspect${pokemonId}`).style.backgroundColor = color;
         inspectState = false;
     }
-}
-
-function setBtnBgColor(type) {
-    let color = TYPE_COLORS[`${type}`];
-    document.getElementById(`${type}-btn`).style.backgroundColor = color;
-}
-
-function setBtnBgColorToDefault(type) {
-    let color = TYPE_COLORS[`default`];
-    document.getElementById(`${type}-btn`).style.backgroundColor = color;
 }
 
 function closePopUp() {
