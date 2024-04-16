@@ -3,6 +3,34 @@
     src: url("../fonts/monogram-extended.ttf");
 }
 
+@media only screen and (max-width: 500px) {
+    nav {
+        flex-direction: column !important; 
+        justify-content: center !important;
+        flex-wrap: nowrap;
+    }
+
+    .ml-auto {
+        margin-left: unset !important;
+    }
+
+    .mr-auto {
+        margin-right: unset !important;
+    }
+
+    #searchbar {
+        margin-bottom: 20px;
+    }
+
+    .card {
+        min-width: 280px !important;
+    }
+
+    .inspect-card-width {
+        width: 19rem !important;
+    }
+}
+
 body {
     height: 100vh;
     font-family: "MonogramExtended" !important;
@@ -68,16 +96,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.gen-filter-btn-layout {
-    width: 30vw;
-} 
-
-.type-filter-bg {
-    background-color: #181616;
-    border-radius: 20px;
-    padding: 8px;
 }
 
 .black-bg {
@@ -188,24 +206,6 @@ body {
     overflow: hidden;
 }
 
-.tg {
-    border-collapse:collapse;
-    border-spacing:0;
-}
-
-.tg td {
-    border-color:rgba(0,0,0,0);
-    font-size:24px;
-    overflow:hidden;
-    padding: 3px 20px;
-    word-break:normal;
-}
-
-.tg .tg-0lax {
-    text-align:left;
-    vertical-align:top
-}
-
 .mt-min-40 {
     margin-top: -40px;
 }
@@ -224,8 +224,33 @@ body {
     height: 80%;
 }
 
-.flavor-text {
-    font-size: 10px;
-    text-align: center;
+/* Table design */
+.tg {
+    border-collapse:collapse;
+    border-spacing:0;
 }
 
+.tg td {
+    border-color:rgba(0,0,0,0);
+    font-size:24px;
+    overflow:hidden;
+    padding: 3px 20px;
+    word-break:normal;
+}
+
+.tg .tg-0lax {
+    text-align:left;
+    vertical-align:top
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.inspect-card-width {
+    width: 25rem;
+}
