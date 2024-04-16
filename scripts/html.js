@@ -25,7 +25,7 @@ function generateTypeImgsHTML(typeOne, typeTwo) {
 }
 
 function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
-    return `<div id="pokemon-inspect${id}" class="disp-flex-col dialog" style="width: 25rem">
+    return `<div id="pokemon-inspect${id}" class="disp-flex-col dialog inspect-card-width ">
         <div id="top-card-inspect${id}" class="border-t-radius-20 disp-flex-col">
             <div class="disp-flex-row-sb mx-4 mt-2">
                 <h2>${name}</h2>
@@ -42,7 +42,7 @@ function generatePokemonInfoHTML(id, name, imgUrl, exp, height, weight) {
             <div id="types-inspect${id}" class="disp-flex-row-center">
             </div>
         </div>
-        <div class="card-body bg-white border-b-radius-20 mt-min-40 z-2 d-flex flex-column align-items-center" style="width: 25rem; height: 20rem">
+        <div class="card-body bg-white border-b-radius-20 mt-min-40 z-2 d-flex flex-column align-items-center inspect-card-width" style="height: 20rem">
 
             <div class="btn-group mt-5" role="group" aria-label="Basic radio toggle button group" style="width: 70%;">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="showInfo()" checked>
