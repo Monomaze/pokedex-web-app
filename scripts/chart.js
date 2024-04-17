@@ -2,7 +2,6 @@ let myChart;
 
 function renderChart() {
     let [hp, attack, defense, spatk, spdef, speed] = getPokemonStats();
-    console.log(hp);
     const ctx = document.getElementById(`chart-${pokemonId}`);
 
     const data = {
