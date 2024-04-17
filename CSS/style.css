@@ -254,3 +254,11 @@ body {
 .inspect-card-width {
     width: 25rem;
 }
+
+#close-button {
+    cursor: pointer;
+}
+
+#close-button:hover {
+    transform: scale(1.3);
+}

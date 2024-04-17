@@ -86,6 +86,7 @@ function inspectPokemon(id) {
     setBgColorByType(pokemonMainType, inspectState);
     document.getElementById('body').classList.add('overflow-hidden');
     document.getElementById('pop-up-bg').classList.remove('d-none');
+    currentPokemonId = id;
 }
 
 function capitalizeFirstLetter(string) {
@@ -186,3 +187,20 @@ function showStats() {
     renderChart();
 }
 
+function nextPokemon() {
+    if (currentPokemonId == currentlyLoaded - 1) {
+        currentPokemonId = 1;
+    } else {
+        currentPokemonId += 1;
+    }
+    inspectPokemon(currentPokemonId);
+}
+
+function previousPokemon() {
+    if (currentPokemonId == 1) {
+        currentPokemonId = currentlyLoaded - 1;
+    } else {
+        currentPokemonId -= 1;
+    }
+    inspectPokemon(currentPokemonId);
+}
